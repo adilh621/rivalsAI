@@ -17,6 +17,9 @@ export default async function ProfilePage({ params }) {
       next: { revalidate: 60 },
     });
 
+    console.log("API request status:", res.status);
+    console.log("API request ok?", res.ok);
+
     data = await res.json();
 
     if (data.errors?.some(err => err.code === "CollectorResultStatus::Private")) {

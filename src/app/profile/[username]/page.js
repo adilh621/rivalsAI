@@ -23,9 +23,11 @@ export default async function ProfilePage({ params }) {
     data = await res.json();
 
     if (data.errors?.some(err => err.code === "CollectorResultStatus::Private")) {
+      console.log("API fetch failed:", await res.text());
       return <div className="text-center text-red-500 mt-10">User has set their profile to private.</div>;
     }
   } catch (error) {
+    onsole.error("Caught fetch error:", error.message);
     return <div className="text-center text-red-500 mt-10">Failed to fetch data.</div>;
   }
 

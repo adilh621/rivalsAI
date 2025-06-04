@@ -28,7 +28,7 @@ export default async function ProfilePage({ params }) {
       return <div className="text-center text-red-500 mt-10">User has set their profile to private.</div>;
     }
   } catch (error) {
-    onsole.error("Caught fetch error:", error.message);
+    console.error("Caught fetch error:", error.message);
     return <div className="text-center text-red-500 mt-10">Failed to fetch data.</div>;
   }
 
